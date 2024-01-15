@@ -21,4 +21,3 @@ try{
 } catch(PDOException $e){                                            // 예외가 발생한 경우
     throw new PDOException($e->getMessage(), $e->getCode());         // 예외를 다시 발생
 }
-?>
