@@ -24,8 +24,8 @@ $sql = "SELECT a.id, a.title, a.summary, a.category_id, a.member_id,
             JOIN member       AS m   ON a.member_id   = m.id
             LEFT JOIN `image` AS i   ON a.image_id    = i.id
         WHERE a.category_id = :id AND a.published = 1
-        ORDER BY a.id DESC;";                                   // SQL문
-$articles = pdo($pdo, $sql, [$id])->fetchAll();                 // 기사 가져오기
+        ORDER BY a.id DESC;";                                    // SQL문
+$articles = pdo($pdo, $sql, [$id])->fetchAll();                  // 기사 가져오기
 
 $sql = "SELECT id, `name` FROM category WHERE navigation = 1;";  // 카테고리 가져오는 SQL
 $navigation   = pdo($pdo, $sql)->fetchAll();                     // 네비게이션 카테고리 가져오기
@@ -54,6 +54,5 @@ $description  = $category['description'];                        // 메타 Descr
                 </article>
             <?php } ?>
         </section>
-
     </main>
 <?php include 'includes/footer.php'; ?>
